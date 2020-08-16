@@ -1,0 +1,12 @@
+# task definition
+string scene_id
+string frame_id
+string[] object_list
+float64[] scale_list
+geometry_msgs/Pose[] pose_list
+---
+# result definition
+string status
+---
+# feedback
+string text

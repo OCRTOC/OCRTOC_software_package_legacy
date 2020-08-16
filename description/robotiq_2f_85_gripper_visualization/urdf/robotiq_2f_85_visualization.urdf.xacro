@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="robotiq_visualization" params="sim">
+		<!-- ur coupler -->
+		<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_ur_coupler.urdf.xacro" />
+		<xacro:robotiq_ur_coupler name="robotiq_ur_coupler" parent="tool0" />
+		<!-- robotiq gripper -->
+		<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_2f_85.urdf.xacro" />
+		<xacro:robotiq_2f_85 name="robotiq_2f_85" parent="robotiq_ur_coupler" precise_collision="false" adaptive_transmission="false" sim="$(arg sim)">
+			<origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+		</xacro:robotiq_2f_85>
+	</xacro:macro>
+</robot>

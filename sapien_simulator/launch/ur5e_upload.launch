@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description"
+         command="$(find xacro)/xacro --inorder '$(find ocrtoc_task)/urdf/ur5e.urdf'"/>
+  <param name="robot_description_semantic"
+         textfile="$(find sapien_simulator)/config/ur5e.srdf"/>
+  <param name="joint_limits"
+         textfile="$(find sapien_simulator)/config/joint_limits.yaml"/>
+</launch>

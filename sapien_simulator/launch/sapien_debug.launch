@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="command_args" value="-d $(find ocrtoc_task)/rviz/sapien_debug.rviz"/>
+  <node name="rviz_sapien_debug" pkg="rviz" type="rviz" respawn="false"
+        args="$(arg command_args)" output="screen">
+  </node>
+</launch>

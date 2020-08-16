@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="ur_arm_gazebo" params="prefix">
+  <xacro:property name="deg_to_rad" value="0.01745329251994329577" />
+
+
+    <gazebo reference="${prefix}shoulder_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}upper_arm_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}forearm_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_1_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_3_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_2_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}ee_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+     <gazebo reference="kinect_camera_visor">
+      <self_collide>0</self_collide>
+      <enable_wind>0</enable_wind>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <!--<mu>1</mu>-->
+      <mu2>1</mu2>
+      <fdir1>0 0 0</fdir1>
+      <!--<slip1>0</slip1>
+      <slip2>0</slip2>-->
+      <kp>1e+13</kp>
+      <kd>1</kd>
+      <!--<max_vel>0.01</max_vel>
+      <min_depth>0</min_depth>-->
+      <!-- <sensor name="kinectcolor" type="camera">
+        <camera name="kinect">
+          <horizontal_fov>${69.4*deg_to_rad}</horizontal_fov>
+          <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>RGB_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>0</visualize>
+      </sensor>
+      <sensor name="kinectired1" type="camera">
+        <camera name="kinect">
+          <horizontal_fov>${85.2*deg_to_rad}</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>L_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.05</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+      </sensor>
+     <sensor name="kinectired2" type="camera">
+        <camera name="kinect">
+          <horizontal_fov>${85.2*deg_to_rad}</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>L_INT8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.05</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>90</update_rate>
+        <visualize>0</visualize>
+      </sensor> -->
+      <sensor name="kinectdepth" type="depth">
+        <camera name="kinect">
+          <horizontal_fov>1.0382</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>B8G8R8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.100</stddev>
+          </noise>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>0</visualize>
+        <plugin name="kinect_controller" filename="libgazebo_ros_openni_kinect.so">
+          <baseline>0.2</baseline>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30.0</updateRate>
+          <cameraName>kinect_ir</cameraName>
+          <imageTopicName>/kinect/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/kinect/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/kinect/depth/image_raw</depthImageTopicName>
+          <depthImageInfoTopicName>/kinect/depth/camera_info</depthImageInfoTopicName>
+          <pointCloudTopicName>/kinect/depth/points</pointCloudTopicName>
+          <frameName>kinect_optical_frame</frameName>
+          <pointCloudCutoff>0.5</pointCloudCutoff>
+          <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+          <distortionK1>0.00000001</distortionK1>
+          <distortionK2>0.00000001</distortionK2>
+          <distortionK3>0.00000001</distortionK3>
+          <distortionT1>0.00000001</distortionT1>
+          <distortionT2>0.00000001</distortionT2>
+          <CxPrime>0</CxPrime>
+          <Cx>0</Cx>
+          <Cy>0</Cy>
+          <focalLength>0</focalLength>
+          <hackBaseline>0</hackBaseline>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <!-- <gazebo>
+      <plugin name="kinect" filename="librealsense_gazebo_plugin.so">
+        <prefix>kinect</prefix>
+      	<depthUpdateRate>60.0</depthUpdateRate>
+      	<colorUpdateRate>60.0</colorUpdateRate>
+      	<infraredUpdateRate>60.0</infraredUpdateRate>
+      	<depthTopicName>depth/image_raw</depthTopicName>
+      	<depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
+      	<colorTopicName>color/image_raw</colorTopicName>
+      	<colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName> -->
+      	<!-- <infrared1TopicName>infra1/image_raw</infrared1TopicName>
+      	<infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName> -->
+      <!--	<infrared2TopicName>infra2/image_raw</infrared2TopicName> 
+      	<infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>-->
+      	<!-- <colorOpticalframeName>kinect_optical_frame</colorOpticalframeName>
+      	<depthOpticalframeName>kinect_optical_frame</depthOpticalframeName> -->
+      	<!-- <infrared1OpticalframeName>kinect_camera_visor</infrared1OpticalframeName> -->
+      	<!--<infrared2OpticalframeName>${infrared2_optical_frame}</infrared2OpticalframeName>-->
+      	<!-- <rangeMinDepth>0.25</rangeMinDepth>
+      	<rangeMaxDepth>5.88</rangeMaxDepth>
+      	<pointCloud>true</pointCloud>
+      	<pointCloudTopicName>depth/points</pointCloudTopicName>
+      	<pointCloudCutoff>0.5</pointCloudCutoff>
+      </plugin>
+    </gazebo> -->
+
+  </xacro:macro>
+
+</robot>

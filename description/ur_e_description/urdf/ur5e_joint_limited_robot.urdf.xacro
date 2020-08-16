@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur5e">
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur5e -->
+  <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" />
+
+  <!-- arm -->
+  <xacro:ur5e_robot prefix="" joint_limited="true"
+    shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+  />
+
+  <link name="world" />
+
+  <!-- Adding table to the world -->
+  <link name="table">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+  <inertial>
+          <mass value="5" />
+          <origin xyz="0 0 0" />
+          <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://ur_e_description/meshes/table/visual/table.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://ur_e_description/meshes/table/collision/table.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="table"/>
+    <origin rpy="0.0 0.0 -1.57" xyz="0.0 0.0 -0.005"/>
+  </joint>
+
+  <!-- fixing robot base link to the table -->
+  <joint name="table_joint" type="fixed">
+    <parent link="table" />
+    <child link = "base_link" />
+    <origin xyz="0 -0.24 0.0" rpy="0.0 0.0 0" />
+  </joint>
+
+  <!-- gripper -->
+  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_2f_85_visualization.urdf.xacro" />
+  <xacro:robotiq_visualization sim="$(arg sim)"/>
+
+</robot>
