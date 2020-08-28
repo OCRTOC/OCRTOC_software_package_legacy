@@ -394,13 +394,14 @@
         <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
       </material>
     </visual>
-    <!--    <collision>-->
-    <!--      <origin rpy="0 0 0" xyz="0 0 0"/>-->
-    <!--      <geometry>-->
-    <!--        <mesh filename="package://robotiq_2f_85_gripper_visualization/legacy/meshes/collision/robotiq_arg2f_85_outer_knuckle.dae"-->
-    <!--              scale="0.001 0.001 0.001"/>-->
-    <!--      </geometry>-->
-    <!--    </collision>-->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh
+            filename="package://robotiq_2f_85_gripper_visualization/legacy/meshes/collision/robotiq_arg2f_85_outer_knuckle.dae"
+            scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
   <link name="robotiq_2f_85_left_coupler">
     <!--<inertial>
@@ -624,7 +625,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="robotiq_2f_85_left_driver_joint" type="revolute">
+  <joint name="robotiq_2f_85_left_driver_mimic_joint" type="revolute">
     <origin rpy="0 0 3.14159265359" xyz="0 -0.0306011 0.054904"/>
     <parent link="robotiq_arg2f_base_link"/>
     <child link="robotiq_2f_85_left_driver"/>
@@ -646,21 +647,30 @@
     <limit effort="1000" lower="0" upper="0.8" velocity="2.0"/>
     <mimic joint="robotiq_2f_85_left_driver_joint" multiplier="1" offset="0"/>
   </joint>
-  <joint name="robotiq_2f_85_left_follower_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
-    <parent link="robotiq_2f_85_left_coupler"/>
-    <child link="robotiq_2f_85_left_follower"/>
-    <axis xyz="1 0 0"/>
-    <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="robotiq_2f_85_left_driver_joint" multiplier="-1" offset="0"/>
+  <!--  <joint name="robotiq_2f_85_left_follower_joint" type="revolute">-->
+  <!--    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>-->
+  <!--    <parent link="robotiq_2f_85_left_coupler"/>-->
+  <!--    <child link="robotiq_2f_85_left_follower"/>-->
+  <!--    <axis xyz="1 0 0"/>-->
+  <!--    <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>-->
+  <!--    <mimic joint="robotiq_2f_85_left_driver_joint" multiplier="-1" offset="0"/>-->
+  <!--  </joint>-->
+
+  <joint name="robotiq_2f_85_left_driver_joint" type="prismatic">
+    <origin rpy="0 0 3.14" xyz="3.35276e-08 -0.0461303 0.137834"/>
+    <parent link="robotiq_2f_85_base"/>
+    <child link="robotiq_2f_85_left_pad"/>
+    <axis xyz="8.31983143e-08 -9.52063817e-01 3.05899474e-01"/>
+    <limit effort="1000" lower="0" upper="0.0448" velocity="2.0"/>
   </joint>
   <joint name="robotiq_2f_85_left_pad_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
-    <parent link="robotiq_2f_85_left_follower"/>
-    <child link="robotiq_2f_85_left_pad"/>
+    <origin rpy="0 0 0" xyz="0 0.0220203446692936 -0.03242"/>
+    <child link="robotiq_2f_85_left_follower"/>
+    <parent link="robotiq_2f_85_left_pad"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="robotiq_2f_85_right_driver_joint" type="revolute">
+
+  <joint name="robotiq_2f_85_right_driver_mimic_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0.0306011 0.054904"/>
     <parent link="robotiq_arg2f_base_link"/>
     <child link="robotiq_2f_85_right_driver"/>
@@ -683,20 +693,29 @@
     <limit effort="1000" lower="0" upper="0.8" velocity="2.0"/>
     <mimic joint="robotiq_2f_85_left_driver_joint" multiplier="1" offset="0"/>
   </joint>
-  <joint name="robotiq_2f_85_right_follower_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
-    <parent link="robotiq_2f_85_right_coupler"/>
-    <child link="robotiq_2f_85_right_follower"/>
-    <axis xyz="1 0 0"/>
-    <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="robotiq_2f_85_left_driver_joint" multiplier="-1" offset="0"/>
+  <!--  <joint name="robotiq_2f_85_right_follower_joint" type="revolute">-->
+  <!--    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>-->
+  <!--    <parent link="robotiq_2f_85_right_coupler"/>-->
+  <!--    <child link="robotiq_2f_85_right_follower"/>-->
+  <!--    <axis xyz="1 0 0"/>-->
+  <!--    <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>-->
+  <!--    <mimic joint="robotiq_2f_85_left_driver_joint" multiplier="-1" offset="0"/>-->
+  <!--  </joint>-->
+
+  <joint name="robotiq_2f_85_right_driver_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="3.35276e-08 0.0461303 0.137834"/>
+    <parent link="robotiq_2f_85_base"/>
+    <child link="robotiq_2f_85_right_pad"/>
+    <axis xyz="8.31388445e-08 -9.52019331e-01 3.06037896e-01"/>
+    <limit effort="1000" lower="0" upper="0.0448" velocity="2.0"/>
   </joint>
   <joint name="robotiq_2f_85_right_pad_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
-    <parent link="robotiq_2f_85_right_follower"/>
-    <child link="robotiq_2f_85_right_pad"/>
+    <origin rpy="0 0 0" xyz="0 0.0220203446692936 -0.03242"/>
+    <child link="robotiq_2f_85_right_follower"/>
+    <parent link="robotiq_2f_85_right_pad"/>
     <axis xyz="0 0 1"/>
   </joint>
+
   <transmission name="robotiq_2f_85_left_driver_joint">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="robotiq_2f_85_left_driver_joint">

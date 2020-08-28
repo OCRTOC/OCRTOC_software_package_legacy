@@ -3,7 +3,7 @@ This is the OCRTOC software package. For more information on OCRTOC please visit
 
 To take part in OCRTOC, you need to develop your own solution using this software package. After uploading your solution to the competition platform, the performance of your solution will be evaluated.
 
-For the simulation stage, we support two simulators: Gazebo and Sapien. You can choose either of them to test your solution on your local machine. On the competition platform we use both simulators to evaluate your solution. Your final score will be the maximum score of the two simulators. As long as your solution works fine with either of the two simulators, it is good enough for the qualification of the real robot stage.
+For the simulation stage, we support two simulators: Gazebo and Sapien. You can choose either of them to test your solution on your local machine. On the competition platform we use both simulators to evaluate your solution. As long as your solution works fine with either of the two simulators, it is good enough for the qualification of the real robot stage.
 
 For the real robot stage, hardware drivers will be provided in this software package (around the end of August). Your solution will be tested on real robot hardware. The software interfaces for sensor readings and robot control are the same for both simulation and the real robot hardware. So you will not encounter interface issues when transferring your solution from simulation to the real robot.
 
@@ -108,7 +108,7 @@ After you obtained the task information, you need to implement the core function
 
 **Evaluation**
 
-After you finished the task, you need to publish the actionlib result topic. The format of this result is a string. We do not parse the content of this string. Instead, it is only used to activate our callback function for evaluation. So you can write anything reasonable into this string, such as "done", "finished" and so on. If you do not publish the actionlib result at all, your solution will be terminated after a predefined timeout (e.g. 10 minutes), and then the evaluation will start automatically. We highly recommend you to publish the actionlib result topic, once your solution has finished the execution. This helps us compute the execution time of your solution. If two teams have the same score, the team consuming less execution time will be ranked higher.
+After you finished the task, you need to publish the actionlib result topic. The format of this result is a string. We do not parse the content of this string. Instead, it is only used to activate our callback function for evaluation. So you can write anything reasonable into this string, such as "done", "finished" and so on. If you do not publish the actionlib result at all, your solution will be terminated after a predefined timeout (e.g. 10 minutes), and then the evaluation will start automatically. We highly recommend you to publish the actionlib result topic, once your solution has finished the execution. This helps us compute the execution time of your solution. If two teams have the same performance, the team consuming less execution time will be ranked higher.
 
 
 ## Use the OCRTOC software package on your local machine
@@ -150,16 +150,13 @@ sudo docker exec -it ocrtoc_container bash
 roslaunch ocrtoc_solution commit_solution.launch
 ```
 
-5. **Trigger task and scoring**
-
-**The scoring module** will be released by the end of August. Before the release, you will not see score output by running the following script.
-
+5. **Trigger task and evaluation**
 ```bash
 sudo docker exec -it ocrtoc_container bash
 # For gazebo
-roslaunch ocrtoc_task trigger_and_score.launch simulator:=gazebo scene:=1-1
+roslaunch ocrtoc_task trigger_and_evaluation.launch simulator:=gazebo scene:=1-1
 # For sapien
-roslaunch ocrtoc_task trigger_and_score.launch simulator:=sapien scene:=1-1
+roslaunch ocrtoc_task trigger_and_evaluation.launch simulator:=sapien scene:=1-1
 ```
 
 ## Submit your solution for the simulation contest
@@ -195,7 +192,7 @@ roslaunch ocrtoc_solution commit_solution.launch
 # In terminal 3
 sudo docker exec -it ocrtoc_container bash
 source /root/catkin_ws/install.setup.bash
-roslaunch ocrtoc_task trigger_and_score.launch simulator:=gazebo scene:=1-1
+roslaunch ocrtoc_task trigger_and_evaluation.launch simulator:=gazebo scene:=1-1
 
 # 4. Export a docker image by the docker container.
 sudo docker commit ocrtoc_container your_submission_docker_image_name

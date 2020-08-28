@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="gui" default="true" doc="Starts sapien gui" />
+  <arg name="scene" default="1-1" doc="Scene id." />
+  <arg name="simulator" default="gazebo" doc="Simulator to use." />
+  <arg name="paused" default="false" doc="Starts simulator in paused mode" />
+
+  <arg name="path"   value="(find $(arg simulator)_simulator)" />
+  <arg name="dollar" value="$" />
+  <include file="$(arg dollar)$(arg path)/launch/bringup_ur5e_with_2f85.launch">
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="scene" value="$(arg scene)"/>
+  </include>
+  <include file="$(find ocrtoc_solution)/launch/commit_solution.launch" />
+</launch>

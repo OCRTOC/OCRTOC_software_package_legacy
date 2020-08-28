@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <light name="light1" type="point">
+      <pose>0 0 1 0 0 0</pose>
+      <diffuse>3 3 3 1</diffuse>
+      <specular>3 3 3 1</specular>
+    </light>
+    <light name="light2" type="point">
+      <pose>0 0.5 2 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+    </light>
+    <light name="light3" type="point">
+      <pose>0 0.5 2 0 0 0</pose>
+      <diffuse>3 3 3 1</diffuse>
+      <specular>3 3 3 1</specular>
+    </light>
+    <scene>
+      <ambient>0.7 0.7 0.7</ambient>
+    </scene>
+    <model name="box1">
+      <link name="link_box1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://realsense_box/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://realsense_box/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.5864310264587402</mass>
+          <pose>4.0744838770478964e-05 8.587492629885674e-05 -2.4153792764991522e-05 -0.00012602841398420584 -0.00635893997803049 0.005012323893530406</pose>
+          <inertia>
+            <ixx>0.00055784633</ixx>
+            <iyy>0.0011643406</iyy>
+            <izz>0.0014403972</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.2301051914691925 -0.3098393976688385 0.026866458356380463 0.008662532394356498 0.012169717696125893 -0.001176175961901633</pose>
+    </model>
+    <model name="box2">
+      <link name="link_box2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://wooden_puzzle1/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://wooden_puzzle1/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.029293930158019066</mass>
+          <pose>-0.00017350679263472557 7.972260209498927e-05 -9.191554272547364e-05 -0.07784356807478612 -0.26361316070226715 -0.552870069934309</pose>
+          <inertia>
+            <ixx>5.5269634e-06</ixx>
+            <iyy>5.4205675e-06</iyy>
+            <izz>5.4852344e-06</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.10000669956207275 -0.2900063097476959 0.01686667464673519 0.00619018645279395 -0.009709383453279204 -0.0001345777006067722</pose>
+    </model>
+    <model name="box3">
+      <link name="link_box3">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://wooden_puzzle2/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://wooden_puzzle2/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.046210821717977524</mass>
+          <pose>2.7402538762544282e-05 4.9976635636994615e-05 6.587122334167361e-05 -0.19202726218652877 0.6112834530151037 -0.6338736448019666</pose>
+          <inertia>
+            <ixx>8.590097e-06</ixx>
+            <iyy>8.826809e-06</iyy>
+            <izz>8.7012395e-06</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>-0.09010519832372665 -0.3200235962867737 0.01691773720085621 0.020848691846025082 0.0007210201675179961 0.00023858731267961466</pose>
+    </model>
+    <model name="can1">
+      <link name="link_can1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://pepsi/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://pepsi/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.38708412647247314</mass>
+          <pose>-7.5590331107378e-05 2.9931279641459696e-05 -0.0003384356386959553 -0.0010677624110939459 -0.0021735778616849013 0.5673701652335379</pose>
+          <inertia>
+            <ixx>0.00077114574</ixx>
+            <iyy>0.0007705839</iyy>
+            <izz>0.00016412749</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.2500181496143341 0.2999517619609833 0.07449626922607422 -1.6334119936535753e-05 1.8767139052173011e-06 -4.78779859377458e-06</pose>
+    </model>
+    <model name="can2">
+      <link name="link_can2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://redbull/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://redbull/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.22841571271419525</mass>
+          <pose>-2.2126563635538332e-05 -0.00012659550702665 -0.0006860988214612007 0.001137008533125708 -0.010800935482360328 0.5858832407094048</pose>
+          <inertia>
+            <ixx>0.00021475992</ixx>
+            <iyy>0.00021494119</iyy>
+            <izz>0.00012744407</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>-0.05974602699279785 0.3106958270072937 0.04638565704226494 -0.010489543031993117 0.007260199691299269 -4.678833311549429e-05</pose>
+    </model>
+  </world>
+</sdf>
