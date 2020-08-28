@@ -12,6 +12,7 @@ catkin_package(
 
 install(DIRECTORY
   config
+  glsl_shader
   launch
   rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}

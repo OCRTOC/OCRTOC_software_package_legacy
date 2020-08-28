@@ -8,6 +8,7 @@ import time
 
 # The path below comes from a docker
 sys.path.append("/workspace/sapien/build")
+import rospkg
 import rospy
 import pysapien_ros1.core as sapien
 import pysapien_ros1.ros1 as sr
@@ -87,26 +88,6 @@ def load_sapien_sdf(sdf_file, scene, table_height):
     return actors
 
 
-def set_up_gripper_joint(robot, scene):
-    lp = [l for l in robot.get_links() if l.name == "robotiq_2f_85_left_pad"][0]
-    rp = [l for l in robot.get_links() if l.name == "robotiq_2f_85_right_pad"][0]
-    lf = [l for l in robot.get_links() if l.name == "robotiq_2f_85_left_spring_link"][0]
-    rf = [l for l in robot.get_links() if l.name == "robotiq_2f_85_right_spring_link"][0]
-    lk = [l for l in robot.get_links() if l.name == "robotiq_2f_85_left_coupler"][0]
-    rk = [l for l in robot.get_links() if l.name == "robotiq_2f_85_right_coupler"][0]
-
-    base = [l for l in robot.get_links() if l.name == "robotiq_arg2f_base_link"][0]
-    rd = scene.create_drive(base, sapien.Pose(), rp, sapien.Pose())
-    rd.lock_motion(0, 0, 0, 1, 1, 1)
-    ld = scene.create_drive(base, sapien.Pose(), lp, sapien.Pose(q=[0, 0, 0, 1]))
-    ld.lock_motion(0, 0, 0, 1, 1, 1)
-
-    rd2 = scene.create_drive(rf, sapien.Pose(), rk, sapien.Pose())
-    rd2.lock_motion(0, 0, 0, 1, 1, 1)
-    ld2 = scene.create_drive(lf, sapien.Pose(), lk, sapien.Pose())
-    ld2.lock_motion(0, 0, 0, 1, 1, 1)
-
-
 def setup_table(scene: sapien.Scene, height, table_physical_material):
     table_size = np.array([1, 0.8, 0.01]) / 2
     table_pose = np.array([0, 0, height - 0.01])
@@ -149,10 +130,11 @@ def main():
             "Argument paused is only useful when GUI is activated. It is only for debug purpose. "
             "Your program will directly end when using paused:=true with gui:=false")
 
+    current_path = rospkg.RosPack().get_path('sapien_simulator')
     engine = sapien.Engine()
     optifuser_config = sapien.OptifuserConfig()
     optifuser_config.use_shadow = False
-    renderer = sapien.OptifuserRenderer(glsl_dir="/workspace/sapien/glsl_shader/130",
+    renderer = sapien.OptifuserRenderer(glsl_dir=os.path.join(current_path, "./glsl_shader/130"),
                                         glsl_version="130",
                                         config=optifuser_config)
     engine.set_renderer(renderer)
@@ -160,7 +142,7 @@ def main():
 
     # Load scene and ground
     scene_config = sapien.SceneConfig()
-    scene_config.solver_iterations = 15
+    scene_config.solver_iterations = 25
     scene_config.solver_velocity_iterations = 2
     scene_config.enable_pcm = False
     scene_config.default_restitution = 0
@@ -182,30 +164,34 @@ def main():
 
     # Load table
     table_height = 0.0
-    table_material = engine.create_physical_material(0.9, 0.6, 0.05)
 
     # Load sdf
     os.environ.update({
         "SAPIEN_MODEL_PATH": os.path.join(materials_path, "models")})
     sdf_objects = load_sapien_sdf(args.world_name, scene, table_height)
 
-    scene.set_shadow_light([0, -1, -1], [1, 1, 1])
+    # scene.set_shadow_light([0, -1, -1], [1, 1, 1])
     scene.set_ambient_light((0.5, 0.5, 0.5))
 
     sr.init_spd_logger()
     scene_manager = sr.SceneManager(scene, "")
     loader = scene_manager.create_robot_loader()
     loader.fix_root_link = True
+    gripper_material = engine.create_physical_material(1.2, 0.8, 0.01)
+    urdf_config = {
+        "link": {
+            "robotiq_2f_85_left_pad": {"material": gripper_material, "patch_radius": 0.5, "min_patch_radius": 0.01},
+            "robotiq_2f_85_right_pad": {"material": gripper_material, "patch_radius": 0.5,
+                                        "min_patch_radius": 0.01}}}
 
     # Load robot
-    robot, manager = loader.load_from_parameter_server("", {}, 125)
-    set_up_gripper_joint(robot, scene)
-    # robot.set_root_pose(sapien.Pose([-0.24, -0.005, table_height], [-0.7071, 0, 0, 0.7071]))
-    init_qpos = np.array([-1.57, -1.57, 1.57, 0, 0, 0, 0,  0, 0, 0, 0, 0])
+    robot, manager = loader.load_from_parameter_server("", urdf_config, 125)
+    init_qpos = np.array([-1.57, -1.57, 1.57, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     robot.set_qpos(init_qpos)
     robot.set_drive_target(init_qpos)
     manager.set_drive_property(3000, 500, 1000, [0, 1, 2, 3, 4, 5])
-    manager.set_drive_property(400, 50, 300, [7, 10])
+    manager.set_drive_property(200, 50, 300, [6, 7])
+    manager.set_drive_property(100, 40, 300, [8, 9, 10, 11])
     scene_manager.start_all_ros_camera(30)
     scene_manager.start_get_model_service("/sapien/get_model_state", sdf_objects)
     scene.step()
@@ -216,6 +202,7 @@ def main():
     step = 0
     timestep = scene.get_timestep()
     next_step_time = time.time() + timestep
+    mimic_joints = robot.get_active_joints()[20:24]
     if args.gui:
         if args.paused:
             while not controller.should_quit:
@@ -224,17 +211,20 @@ def main():
 
             while True:
                 step_and_render(manager, scene, controller, step, next_step_time)
+                mimic_joint(robot, mimic_joints)
                 next_step_time += timestep
                 step += 1
         else:
             while not controller.should_quit:
                 step_and_render(manager, scene, controller, step, next_step_time)
+                mimic_joint(robot, mimic_joints)
                 next_step_time += timestep
                 step += 1
     else:
         try:
             while True:
                 step_only(manager, scene, next_step_time)
+                mimic_joint(robot, mimic_joints)
                 next_step_time += timestep
                 step += 1
         except KeyboardInterrupt:
@@ -264,6 +254,15 @@ def step_only(manager, scene, next_step_time):
         now = time.time()
     scene.step()
     scene.update_render()
+
+
+def mimic_joint(robot, mimic_joints):
+    left_target = robot.get_qpos()[7] * 17.86
+    right_target = robot.get_qpos()[6] * 17.86
+    mimic_joints[0].set_drive_target(right_target)
+    mimic_joints[1].set_drive_target(right_target)
+    mimic_joints[2].set_drive_target(left_target)
+    mimic_joints[3].set_drive_target(left_target)
 
 
 def parse_arg():
