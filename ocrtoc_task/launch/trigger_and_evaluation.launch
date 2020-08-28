@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scene" default="1-1" doc="Scene id."/>
+  <arg name="simulator" default="gazebo" doc="Simulator to use." />
+
+  <group ns="$(arg simulator)">
+    <node pkg="ocrtoc_task" type="trigger_and_evaluation.py" name="trigger_and_evaluation" output="screen">
+      <param name="materials_dir" value="/root/ocrtoc_materials"/>
+      <param name="scene" value="$(arg scene)"/>
+    </node>
+  </group>
+</launch>

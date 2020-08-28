@@ -27,6 +27,7 @@ install(DIRECTORY
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 install(PROGRAMS
-  scripts/trigger_and_score.py
+  scripts/task_evaluation.pyc
+  scripts/trigger_and_evaluation.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
