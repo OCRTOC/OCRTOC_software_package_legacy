@@ -1,0 +1,504 @@
+<sdf version="1.4">
+  <world name="default">
+    <light name="light1" type="point">
+      <pose>0 0 1 0 0 0</pose>
+      <diffuse>3 3 3 1</diffuse>
+      <specular>3 3 3 1</specular>
+    </light>
+    <light name="light2" type="point">
+      <pose>0 0.5 2 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+    </light>
+    <light name="light3" type="point">
+      <pose>0 0.5 2 0 0 0</pose>
+      <diffuse>3 3 3 1</diffuse>
+      <specular>3 3 3 1</specular>
+    </light>
+    <scene>
+      <ambient>0.7 0.7 0.7</ambient>
+    </scene>
+    <model name="bottle1">
+      <link name="link_bottle1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://mustard_bottle/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://mustard_bottle/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.8303800225257874</mass>
+          <pose>0.0005032453336752951 -0.00015647402324248105 -0.017475798726081848 0.0004182333015560062 0.0009465791044325989 0.02485372608929167</pose>
+          <inertia>
+            <ixx>0.0023058522</ixx>
+            <iyy>0.0020231898</iyy>
+            <izz>0.00060770847</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.08631772547960281 0.3512159287929535 0.09615199267864227 1.5643391179191282e-05 1.6781952603096574e-05 -2.6466272653179264</pose>
+    </model>
+    <model name="bottle2">
+      <link name="link_bottle2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://bleach_cleanser/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://bleach_cleanser/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>1.2443958520889282</mass>
+          <pose>0.00012193184375064448 0.0037838828284293413 -0.02442161552608013 -0.07381670616387152 0.00042011519151103325 -0.006875073427896589</pose>
+          <inertia>
+            <ixx>0.006056655</ixx>
+            <iyy>0.005643917</iyy>
+            <izz>0.0010355307</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.05729527771472931 -0.1119648739695549 0.12578411400318146 -0.0001997919811346151 1.729786638403583e-05 -0.9901871138097584</pose>
+    </model>
+    <model name="toy1">
+      <link name="link_toy1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://e_lego_duplo/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://e_lego_duplo/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.09737597405910492</mass>
+          <pose>0.00032560466206632555 0.00023485408746637404 0.00195214559789747 -0.022567666099209266 -6.826041083389806e-05 -0.0076251575404409295</pose>
+          <inertia>
+            <ixx>2.0306108e-05</ixx>
+            <iyy>8.3341496e-05</iyy>
+            <izz>8.115786e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.08424360305070877 0.1531103551387787 0.021786019206047058 0.0019028190647997175 8.224386035984219e-05 -0.07597862861040454</pose>
+    </model>
+    <model name="toy2">
+      <link name="link_toy2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://e_toy_airplane/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://e_toy_airplane/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.02463557943701744</mass>
+          <pose>0.0001174048229586333 -2.2482929125544615e-05 -0.011187203228473663 0.005518471763615081 0.009228316378097946 0.15041226495803456</pose>
+          <inertia>
+            <ixx>7.519061e-06</ixx>
+            <iyy>7.442144e-06</iyy>
+            <izz>2.2597733e-06</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.2123013436794281 0.38415539264678955 0.03321104496717453 5.423534784720033e-06 -0.00022943176348810812 -1.966128631522117</pose>
+    </model>
+    <model name="can1">
+      <link name="link_can1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://master_chef_can/collision_meshes/collision.obj</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://master_chef_can/visual_meshes/visual.dae</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.10604178160429001</mass>
+          <pose>-4.6619643399026245e-05 1.3926852204804163e-07 -5.079910988570191e-05 -0.0017995162277820833 0.0006479167566960504 -0.6102671332965355</pose>
+          <inertia>
+            <ixx>6.2239335e-05</ixx>
+            <iyy>6.178125e-05</iyy>
+            <izz>3.439199e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.2164505422115326 -0.23264090716838837 0.03530198708176613 -5.432574602775013e-07 3.5986477938950175e-08 0.5612939401554884</pose>
+    </model>
+    <model name="can2">
+      <link name="link_can2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://tuna_fish_can/collision_meshes/collision.obj</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://tuna_fish_can/visual_meshes/visual.dae</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.028372401371598244</mass>
+          <pose>-2.0361669157864526e-05 -7.256527169374749e-06 -0.0005269024986773729 -0.0017944775646394609 0.00017161727950706725 0.2405381123423382</pose>
+          <inertia>
+            <ixx>3.8359926e-06</ixx>
+            <iyy>3.8200033e-06</iyy>
+            <izz>6.5639315e-06</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.20288154482841492 0.05069833621382713 0.00851999968290329 -2.660985358299073e-09 -5.928371856096221e-09 -3.0541229405058647</pose>
+    </model>
+    <model name="box1">
+      <link name="link_box1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://jenga/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://jenga/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.19909408688545227</mass>
+          <pose>-2.502855807051674e-07 -0.0001025000965455547 -4.0923401684267446e-05 0.0 -7.34215461761844e-07 0.0</pose>
+          <inertia>
+            <ixx>5.509416e-05</ixx>
+            <iyy>0.00037331658</iyy>
+            <izz>0.00039854718</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.16092920303344727 -0.18620142340660095 0.024701949208974838 1.5774976217001393 -2.20148580351531e-07 -2.010600058114863</pose>
+    </model>
+    <model name="box2">
+      <link name="link_box2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://cracker_box/collision_meshes/collision.obj</uri>
+              <scale>0.25 0.25 0.25</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://cracker_box/visual_meshes/visual.dae</uri>
+              <scale>0.25 0.25 0.25</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.04114612191915512</mass>
+          <pose>0.00023660354781895876 6.358561950037256e-05 -0.0004257383698131889 -0.00031620780631524763 -0.011106488668660274 0.002546795934166242</pose>
+          <inertia>
+            <ixx>6.5410845e-06</ixx>
+            <iyy>1.0800616e-05</iyy>
+            <izz>1.5413472e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.18497565388679504 -0.0479399710893631 0.009120448492467403 -0.011788245189773349 -0.007367258814069994 0.546536347308149</pose>
+    </model>
+    <model name="box3">
+      <link name="link_box3">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://gelatin_box/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://gelatin_box/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.2244011014699936</mass>
+          <pose>0.00043196187471039593 0.00011156871914863586 -0.00036403213744051754 -0.001050372105108351 -0.004755819619724262 0.01644056133527167</pose>
+          <inertia>
+            <ixx>0.00015840889</ixx>
+            <iyy>0.000113150636</iyy>
+            <izz>0.0002411336</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.2691347301006317 -0.21137666702270508 0.045005083084106445 1.3861009171974092 -0.011188025210854984 1.5683458937511572</pose>
+    </model>
+    <model name="box4">
+      <link name="link_box4">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://sugar_box/collision_meshes/collision.obj</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+          <contact>
+        <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.0001</min_depth>
+            <kp>1e8</kp>
+        </ode>
+    </contact></surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://sugar_box/visual_meshes/visual.dae</uri>
+              <scale>0.5 0.5 0.5</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.11117161065340042</mass>
+          <pose>0.0005171863595023751 1.9245546354795806e-05 -0.00018182402709499002 -0.0004046265622990317 0.001050663638873437 0.002615378555930204</pose>
+          <inertia>
+            <ixx>2.3156968e-05</ixx>
+            <iyy>7.4848074e-05</iyy>
+            <izz>8.960209e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>-0.07197657227516174 0.039023421704769135 0.011399305425584316 0.0007751176120571632 -0.02343239460255775 -1.5424540480116877</pose>
+    </model>
+  <physics type="ode">
+      <max_contacts>50</max_contacts>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>75</iters>
+        </solver>
+        <constraints>
+          <contact_max_correcting_vel>0</contact_max_correcting_vel>
+          <contact_surface_layer>0</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics></world>
+</sdf>

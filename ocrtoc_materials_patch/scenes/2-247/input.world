@@ -1,0 +1,516 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <light name="light1" type="point">
+      <pose>0 0 1 0 0 0</pose>
+      <diffuse>3 3 3 1</diffuse>
+      <specular>3 3 3 1</specular>
+    </light>
+    <light name="light2" type="point">
+      <pose>0 0.5 2 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+    </light>
+    <light name="light3" type="point">
+      <pose>0 0.5 2 0 0 0</pose>
+      <diffuse>3 3 3 1</diffuse>
+      <specular>3 3 3 1</specular>
+    </light>
+    <scene>
+      <ambient>0.7 0.7 0.7</ambient>
+    </scene>
+    <model name="bottle1">
+      <link name="link_bottle1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://green_arrow/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://green_arrow/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.2764224410057068</mass>
+          <pose>0.0005358477937988937 -0.0008270691032521427 0.002210969105362892 -0.06332196008274972 0.012988210902137025 0.674142157837799</pose>
+          <inertia>
+            <ixx>0.00020051825</ixx>
+            <iyy>0.00020021446</iyy>
+            <izz>0.00012947427</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>-0.06785408407449722 0.041758231818675995 0.03896166384220123 0.04528460157318945 0.02425629468266785 -0.7934869744312143</pose>
+    </model>
+    <model name="bottle2">
+      <link name="link_bottle2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://pure_zhen/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://pure_zhen/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.2372884750366211</mass>
+          <pose>-8.582299778936431e-05 0.0002452346670906991 -0.0015797418309375644 -0.027641670524606855 0.005623077019143168 0.30585846122319743</pose>
+          <inertia>
+            <ixx>0.0007112664</ixx>
+            <iyy>0.00071145216</iyy>
+            <izz>7.51383e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.2341763973236084 -0.07014083862304688 0.0919484868645668 0.019488867115088758 -0.01608834523321699 -0.5034679799402542</pose>
+    </model>
+    <model name="toy1">
+      <link name="link_toy1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://green_car/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://green_car/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.20962044596672058</mass>
+          <pose>-0.0013504145899787545 -0.006657707970589399 -0.005316642578691244 -0.039065441355442126 -0.06379429686261762 -0.02020295655521077</pose>
+          <inertia>
+            <ixx>0.00027990175</ixx>
+            <iyy>0.00011496672</iyy>
+            <izz>0.0002586162</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.02491625025868416 -0.2552414536476135 0.041238024830818176 0.0002680222889639064 -0.01175253041208898 1.6590178176654573</pose>
+    </model>
+    <model name="toy2">
+      <link name="link_toy2">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://red_car/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://red_car/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.14484786987304688</mass>
+          <pose>-5.4754713346483186e-05 -0.0005591834196820855 -0.00010978482168866321 0.07788686850080329 -0.007671859407679223 -0.012438986453349917</pose>
+          <inertia>
+            <ixx>0.00016771811</ixx>
+            <iyy>4.1868814e-05</iyy>
+            <izz>0.00015864764</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>-0.0784686803817749 0.19415469467639923 0.027983250096440315 0.0010568673241795339 -0.013514235726146137 0.03311523632670979</pose>
+    </model>
+    <model name="silverware1">
+      <link name="link_silverware1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://doraemon_spoon/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://doraemon_spoon/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.020818473771214485</mass>
+          <pose>-0.022165074944496155 -0.0006374582881107926 -0.0033325462136417627 -0.009147017253597407 0.0738041759980984 -0.014123826591698564</pose>
+          <inertia>
+            <ixx>1.6307007e-06</ixx>
+            <iyy>4.631433e-05</iyy>
+            <izz>4.7101734e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.17279906570911407 -0.09164661169052124 0.014619855210185051 -0.1973725315617531 -0.005195046565460829 2.659992812024251</pose>
+    </model>
+    <model name="stationery1">
+      <link name="link_stationery1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://correction_fuid/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://correction_fuid/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.03337494283914566</mass>
+          <pose>-0.00012557735317386687 -0.0009722886024974287 -0.001618212671019137 -0.010846603423614418 0.019488389217657873 -0.01599245375892703</pose>
+          <inertia>
+            <ixx>3.2324202e-05</ixx>
+            <iyy>1.9563013e-06</iyy>
+            <izz>3.3165503e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.11854691058397293 -0.2726261019706726 0.009632829576730728 -0.001727147211276913 -0.05616857401203927 -2.5899176047336785</pose>
+    </model>
+    <model name="bowl1">
+      <link name="link_bowl1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://hello_kitty_bowl/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://hello_kitty_bowl/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.11590971797704697</mass>
+          <pose>-0.0015402117278426886 0.0004577837826218456 -0.0080512510612607 0.004152729053700843 -0.12227221811834889 0.04345084117661168</pose>
+          <inertia>
+            <ixx>0.00017210246</ixx>
+            <iyy>0.00018182951</iyy>
+            <izz>0.00025734986</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.0204177126288414 -0.33830124139785767 0.03743338957428932 0.0013358889300124441 0.0005906130586154956 -0.48483366060444627</pose>
+    </model>
+    <model name="cup1">
+      <link name="link_cup1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://hello_kitty_cup/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://hello_kitty_cup/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.06483803689479828</mass>
+          <pose>0.00027251249412074685 0.0002795030304696411 0.003044978016987443 0.05779149237921037 0.007964744961503711 -0.020451485374324563</pose>
+          <inertia>
+            <ixx>8.928983e-05</ixx>
+            <iyy>9.0285175e-05</iyy>
+            <izz>7.52867e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>-0.05562829226255417 0.3545832931995392 0.04621398076415062 -0.0057119118342197125 0.010786872103109442 -2.8528154356234166</pose>
+    </model>
+    <model name="plate1">
+      <link name="link_plate1">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://hello_kitty_plate/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://hello_kitty_plate/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.035439908504486084</mass>
+          <pose>0.007314295507967472 0.00028937257593497634 -0.0027947179041802883 -0.00010432032854243346 -0.007054443681780748 -0.014449040989024118</pose>
+          <inertia>
+            <ixx>6.833875e-05</ixx>
+            <iyy>0.00012897578</iyy>
+            <izz>0.00019583687</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.12951809167861938 0.30130788683891296 0.008291435427963734 0.0004656674009104086 0.0041728405160662155 -0.4840945286667437</pose>
+    </model>
+    <model name="box4">
+      <link name="link_box4">
+        <collision name="default">
+          <geometry>
+            <mesh>
+              <uri>model://wooden_puzzle1/collision_meshes/collision.obj</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.5</mu>
+                <mu2>0.5</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.0001</min_depth>
+                <kp>1e8</kp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="default">
+          <geometry>
+            <mesh>
+              <uri>model://wooden_puzzle1/visual_meshes/visual.dae</uri>
+              <scale>1.0 1.0 1.0</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <mass>0.022725893184542656</mass>
+          <pose>-0.00017350679263472557 7.972260937094688e-05 -9.191554272547364e-05 -0.07784633272711022 -0.26361483493671084 -0.5528696267966513</pose>
+          <inertia>
+            <ixx>4.2877546e-06</ixx>
+            <iyy>4.205213e-06</iyy>
+            <izz>4.2553816e-06</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+      <pose>0.17657442390918732 -0.22122129797935486 0.016802005469799042 0.010512422714953434 -0.009457349807902646 -1.576103005731415</pose>
+    </model>
+    <physics type="ode">
+      <max_contacts>50</max_contacts>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>75</iters>
+        </solver>
+        <constraints>
+          <contact_max_correcting_vel>0</contact_max_correcting_vel>
+          <contact_surface_layer>0</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+  </world>
+</sdf>

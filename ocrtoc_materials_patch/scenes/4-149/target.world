@@ -1,0 +1,1295 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  
+  
+  <world name="default">
+    
+    
+    <light name="light1" type="point">
+      
+      
+      <pose>0 0 1 0 0 0</pose>
+      
+      
+      <diffuse>3 3 3 1</diffuse>
+      
+      
+      <specular>3 3 3 1</specular>
+      
+    
+    </light>
+    
+    
+    <light name="light2" type="point">
+      
+      
+      <pose>0 0.5 2 0 0 0</pose>
+      
+      
+      <diffuse>1 1 1 1</diffuse>
+      
+      
+      <specular>1 1 1 1</specular>
+      
+    
+    </light>
+    
+    
+    <light name="light3" type="point">
+      
+      
+      <pose>0 0.5 2 0 0 0</pose>
+      
+      
+      <diffuse>3 3 3 1</diffuse>
+      
+      
+      <specular>3 3 3 1</specular>
+      
+    
+    </light>
+    
+    
+    <scene>
+      
+      
+      <ambient>0.7 0.7 0.7</ambient>
+      
+    
+    </scene>
+    
+    
+    <model name="plate1">
+      
+      
+      <link name="link_plate1">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://pan_tefal/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://pan_tefal/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>1.028076410293579</mass>
+          
+          
+          <pose>-0.00018002314027398825 3.279135125922039e-05 -0.008514932356774807 0.0008190286496448133 -0.0003301359478442965 -0.33185491454628113</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>0.0070967614</ixx>
+            
+            
+            <iyy>0.0071425145</iyy>
+            
+            
+            <izz>0.01306377</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.019997350871562958 -0.38002845644950867 0.038050003349781036 -2.4624716085776194e-08 -2.0669940087523188e-07 -0.00032418978502480076</pose>
+      
+    
+    </model>
+    
+    
+    <model name="cup1">
+      
+      
+      <link name="link_cup1">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://g_cups/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>2.0 2.0 2.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://g_cups/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>2.0 2.0 2.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.3782927095890045</mass>
+          
+          
+          <pose>-0.001589254941791296 -8.413039176957682e-05 -0.004265876952558756 -0.21383017454034267 -0.31409966981697707 0.31122517364991203</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>0.0017662095</ixx>
+            
+            
+            <iyy>0.0017602018</iyy>
+            
+            
+            <izz>0.0018294888</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.018559277057647705 -0.3789404332637787 0.0820125862956047 0.0004964521120101538 0.007248085821068015 0.007265067713838226</pose>
+      
+    
+    </model>
+    
+    
+    <model name="silverware1">
+      
+      
+      <link name="link_silverware1">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://fork/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://fork/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.026489688083529472</mass>
+          
+          
+          <pose>-0.029570039361715317 0.0004658823017962277 0.0003218861238565296 -0.013551569982765454 -0.010977837882993008 0.014453901071758994</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>9.286133e-07</ixx>
+            
+            
+            <iyy>6.915696e-05</iyy>
+            
+            
+            <izz>6.957229e-05</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.021564653143286705 -0.38731738924980164 0.09761213511228561 3.141168121882028 -0.7982068860722679 -2.025181012105113</pose>
+      
+    
+    </model>
+    
+    
+    <model name="silverware2">
+      
+      
+      <link name="link_silverware2">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://knife/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://knife/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.029696408659219742</mass>
+          
+          
+          <pose>-0.02378525398671627 0.0015275129117071629 5.062026684754528e-05 0.07307291524746888 0.017248417245514007 -0.007409819762840487</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>8.429046e-07</ixx>
+            
+            
+            <iyy>0.00011408882</iyy>
+            
+            
+            <izz>0.00011436025</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.024200867861509323 -0.36415332555770874 0.10468627512454987 -0.31715892632830994 -0.8077067339079841 0.8278714302757735</pose>
+      
+    
+    </model>
+    
+    
+    <model name="silverware3">
+      
+      
+      <link name="link_silverware3">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://spoon/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://spoon/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.03311982378363609</mass>
+          
+          
+          <pose>-0.005526315420866013 -0.0016034175641834736 -0.0007271657232195139 0.03521570787954088 -0.039065826432539925 0.006150615331628258</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>1.8421787e-06</ixx>
+            
+            
+            <iyy>0.00012601985</iyy>
+            
+            
+            <izz>0.00012692837</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.04903319478034973 -0.42672622203826904 0.12087520956993103 2.0870445711476924 -1.3185740325122723 -1.347682182765978</pose>
+      
+    
+    </model>
+    
+    
+    <model name="cup3">
+      
+      
+      <link name="link_cup3">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://e_cups/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://e_cups/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.04274870082736015</mass>
+          
+          
+          <pose>0.0011355747701600194 0.002879784908145666 -0.0038829718250781298 0.6952385334450403 0.08767673131131876 -0.5235259542394143</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>3.7693662e-05</ixx>
+            
+            
+            <iyy>3.9395272e-05</iyy>
+            
+            
+            <izz>3.60395e-05</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.22035335004329681 0.009481776505708694 0.03560691326856613 3.139696702768196 0.008252075256340337 -0.4650791175036596</pose>
+      
+    
+    </model>
+    
+    
+    <model name="cup4">
+      
+      
+      <link name="link_cup4">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://c_cups/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://c_cups/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.03700341656804085</mass>
+          
+          
+          <pose>0.000723725650459528 0.0020153913646936417 -0.001275098416954279 0.3021570948588466 0.013461689811342397 -0.08771879914681689</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>2.7518952e-05</ixx>
+            
+            
+            <iyy>2.7032653e-05</iyy>
+            
+            
+            <izz>2.4336894e-05</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.19097170233726501 -0.20016507804393768 0.033458009362220764 3.1415926262145955 -1.909029536318844e-07 -0.6683566032597893</pose>
+      
+    
+    </model>
+    
+    
+    <model name="cup5">
+      
+      
+      <link name="link_cup5">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://a_cups/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://a_cups/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.019671199843287468</mass>
+          
+          
+          <pose>0.0009805698646232486 0.002301727654412389 -0.0008868423756211996 0.13222078611688937 -0.054866385407424875 -0.03594538790173013</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>1.11681975e-05</ixx>
+            
+            
+            <iyy>1.1092072e-05</iyy>
+            
+            
+            <izz>8.98058e-06</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.27053627371788025 -0.10163002461194992 0.03085397183895111 3.1323802367267866 0.004022100937856644 0.7468924194665724</pose>
+      
+    
+    </model>
+    
+    
+    <model name="bowl1">
+      
+      
+      <link name="link_bowl1">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://bowl/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://bowl/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.0735260546207428</mass>
+          
+          
+          <pose>0.00020445183326955885 -0.0010302121518179774 -0.0008042646804824471 -0.015764089211791843 0.0145467995448698 0.7140405948779551</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>0.00016889515</ixx>
+            
+            
+            <iyy>0.0001651214</iyy>
+            
+            
+            <izz>0.00028413974</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.2500710189342499 0.1799425184726715 0.027247363701462746 -3.132724218958047 0.0006753079540337999 1.1268229212290402</pose>
+      
+    
+    </model>
+    
+    
+    <model name="bowl2">
+      
+      
+      <link name="link_bowl2">
+        
+        
+        <collision name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://bowl_a/collision_meshes/collision.obj</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+          
+          <surface>
+            
+            
+            <friction>
+              
+              
+              <ode>
+                
+                
+                <mu>0.5</mu>
+                
+                
+                <mu2>0.5</mu2>
+                
+              
+              </ode>
+              
+            
+            </friction>
+            
+          
+          </surface>
+          
+        
+        </collision>
+        
+        
+        <visual name="default">
+          
+          
+          <geometry>
+            
+            
+            <mesh>
+              
+              
+              <uri>model://bowl_a/visual_meshes/visual.dae</uri>
+              
+              
+              <scale>1.0 1.0 1.0</scale>
+              
+            
+            </mesh>
+            
+          
+          </geometry>
+          
+        
+        </visual>
+        
+        
+        <inertial>
+          
+          
+          <mass>0.3023386001586914</mass>
+          
+          
+          <pose>0.0002786748227663338 4.7310430090874434e-05 -0.0013765288749709725 -0.0009805376545940754 -0.0010938219141718058 -0.19123570206927626</pose>
+          
+          
+          <inertia>
+            
+            
+            <ixx>0.00086077204</ixx>
+            
+            
+            <iyy>0.0008660566</iyy>
+            
+            
+            <izz>0.0015309157</izz>
+            
+            
+            <ixy>0</ixy>
+            
+            
+            <ixz>0</ixz>
+            
+            
+            <iyz>0</iyz>
+            
+          
+          </inertia>
+          
+        
+        </inertial>
+        
+      
+      </link>
+      
+      
+      <pose>0.050137463957071304 0.1698131412267685 0.030100597068667412 3.1415877720295398 2.508239501052668e-05 -1.2922074511081771</pose>
+      
+    
+    </model>
+    
+    
+  </world>
+  
+
+</sdf>
