@@ -76,7 +76,7 @@ def load_sapien_sdf(sdf_file, scene, table_height):
         ixz = float(sdf_inertia.find('ixz').text)
         iyz = float(sdf_inertia.find('iyz').text)
         assert ixy == ixz == iyz == 0
-        builder.set_mass_and_inertia(mass, sapien.Pose(xyzrpy[:3], euler2quat(*xyzrpy[3:])), [ixx, ixy, ixz])
+        builder.set_mass_and_inertia(mass, sapien.Pose(xyzrpy[:3], euler2quat(*xyzrpy[3:])), [ixx, iyy, izz])
         model_pose = sdf_model.find('pose')
         model = builder.build(name=sdf_model.attrib['name'])
         xyzrpy = np.array([float(x) for x in model_pose.text.strip().split()])
@@ -180,9 +180,9 @@ def main():
     gripper_material = engine.create_physical_material(1.2, 0.8, 0.01)
     urdf_config = {
         "link": {
-            "robotiq_2f_85_left_pad": {"material": gripper_material, "patch_radius": 0.5, "min_patch_radius": 0.01},
-            "robotiq_2f_85_right_pad": {"material": gripper_material, "patch_radius": 0.5,
-                                        "min_patch_radius": 0.01}}}
+            "robotiq_2f_85_left_pad": {"material": gripper_material, "patch_radius": 0.02, "min_patch_radius": 0.005},
+            "robotiq_2f_85_right_pad": {"material": gripper_material, "patch_radius": 0.02,
+                                        "min_patch_radius": 0.005}}}
 
     # Load robot
     robot, manager = loader.load_from_parameter_server("", urdf_config, 125)
