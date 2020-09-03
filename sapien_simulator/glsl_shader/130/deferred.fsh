@@ -202,19 +202,6 @@ void main() {
     color += pointLights[i].emission * ggx(lightDir, camDir, normal, roughness, F0) / d / d;
   }
 
-  vec3 lightDir = -normalize((gbufferViewMatrix * vec4(shadowLightDirection, 0)).xyz);
-
-  // diffuse
-  color += (1.f - metallic) * albedo * shadowLightEmission
-           * diffuse(lightDir, camDir, normal) * visibility;
-
-  // metallic
-  color += metallic * albedo * shadowLightEmission
-           * ggx(lightDir, camDir, normal, roughness, 1.f) * visibility;
-
-  // specular
-  color += shadowLightEmission * ggx(lightDir, camDir, normal, roughness, F0) * visibility;
-
   // for (int i = 0; i < N_DIRECTION_LIGHTS; i++) {
   //   vec3 lightDir = -normalize((gbufferViewMatrix * vec4(directionalLights[i].direction, 0)).xyz);
   //   color += albedo * directionalLights[i].emission * max(0, dot(lightDir, normal));
