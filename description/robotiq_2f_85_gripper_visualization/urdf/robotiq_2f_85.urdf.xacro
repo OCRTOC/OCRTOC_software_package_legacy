@@ -576,13 +576,13 @@
 					<multiplier>1</multiplier>
 				</plugin>
 				<plugin name="${name}_right_pad_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
-					<joint>${name}_right_pad_joint</joint>
-					<mimicJoint>${name}_right_follower_joint</mimicJoint>
+					<joint>${name}_right_follower_joint</joint>
+					<mimicJoint>${name}_right_pad_joint</mimicJoint>
 					<multiplier>0</multiplier>
 				</plugin>
 				<plugin name="${name}_left_pad_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
-					<joint>${name}_left_pad_joint</joint>
-					<mimicJoint>${name}_right_follower_joint</mimicJoint>
+					<joint>${name}_right_follower_joint</joint>
+					<mimicJoint>${name}_left_pad_joint</mimicJoint>
 					<multiplier>0</multiplier>
 				</plugin>
 			</gazebo>

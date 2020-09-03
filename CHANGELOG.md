@@ -1,3 +1,10 @@
+## [V1.2] release date: 2020-09-03
+**Changes in v1.2**
+- Updated the method for task evaluation. For each task we calculate the average distance error of all objects instead of their sum.
+- Fixed the Sapien object inertia issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/6)
+- Fixed the Sapien GUI issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/8)
+- Fixed the Gazebo gripper issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/9)
+
 ## [V1.1] release date: 2020-08-28
 **Changes in v1.1**
 - Added 20 object models and 100 trial scenes (available at ocrtoc_materials_patch). You can use the script ocrtoc_materials_patch/patch.sh to copy the new models and scenes into your docker image. The new object models will be re-used in the simulation contest and in the real robot stage.

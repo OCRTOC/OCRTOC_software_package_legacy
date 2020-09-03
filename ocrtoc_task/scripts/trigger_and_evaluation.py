@@ -169,6 +169,6 @@ if __name__ == '__main__':
     time_cost = end_time - start_time
     rospy.loginfo("Simulator: " + simulator_name)
     rospy.loginfo("Task name: " + task_name)
-    rospy.loginfo("Scene pose error: " + str(scene_pose_error) + ' meters')
+    rospy.loginfo("Average 3D distance error: " + str(scene_pose_error) + ' meters')
     rospy.loginfo("Time cost: " + str(time_cost) + ' seconds')
     rospy.loginfo("Done.")
