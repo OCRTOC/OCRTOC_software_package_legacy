@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <node pkg="rostopic" type="rostopic" name="realsense_color_pub" respawn="false" output="screen"
-        args="pub /realsense/color/camera_info sensor_msgs/CameraInfo -s
+        args="pub --use-rostime /realsense/color/camera_info sensor_msgs/CameraInfo -s
         '{header: {seq: 0, stamp: now, frame_id: 'realsense_camera_link'},
         height: 480, width: 640, distortion_model: 'plumb_bob',
         D: [],
@@ -12,7 +12,7 @@
         roi: {x_offset: 0, y_offset: 0, height: 0, width: 0, do_rectify: false}}' -r 25"/>
 
   <node pkg="rostopic" type="rostopic" name="realsense_depth_pub" respawn="false" output="screen"
-        args="pub /realsense/depth/camera_info sensor_msgs/CameraInfo -s
+        args="pub --use-rostime /realsense/depth/camera_info sensor_msgs/CameraInfo -s
         '{header: {seq: 0, stamp: now, frame_id: 'realsense_camera_link'},
         height: 480, width: 640, distortion_model: 'plumb_bob',
         D: [],
@@ -23,7 +23,7 @@
         roi: {x_offset: 0, y_offset: 0, height: 0, width: 0, do_rectify: false}}' -r 25"/>
 
   <node pkg="rostopic" type="rostopic" name="kinect_color_pub" respawn="false" output="screen"
-        args="pub /kinect/color/camera_info sensor_msgs/CameraInfo -s
+        args="pub --use-rostime /kinect/color/camera_info sensor_msgs/CameraInfo -s
         '{header: {seq: 0, stamp: now, frame_id: 'kinect_camerea_visor'},
         height: 720, width: 1280, distortion_model: 'plumb_bob',
         D: [],
