@@ -1,3 +1,13 @@
+## [V1.3] release date: 2020-09-11
+**Changes in v1.3**
+- Added Dockerfile and build script. You can rebuild the docker image as you wish using the Dockerfile.
+- Upgraded docker image (tag release1.0 to release1.3).
+    - Replaced cuda-runtime by cuda-devel.
+    - Added models and scenes released in v1.1.
+    - Fixed the Sapien controller issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/10)
+- Fixed the Sapien camera_info timestamp issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/14)
+- For those of you who want to do some fixings (such as gripper or urdf models) on your own, we allow the modifiction in the following folders "/description", "/gazebo_simulator", "/sapien_simluator".
+
 ## [V1.2] release date: 2020-09-03
 **Changes in v1.2**
 - Updated the method for task evaluation. For each task we calculate the average distance error of all objects instead of their sum.
