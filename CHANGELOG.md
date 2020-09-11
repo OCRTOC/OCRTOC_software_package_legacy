@@ -1,8 +1,8 @@
 ## [V1.3] release date: 2020-09-11
 **Changes in v1.3**
-- Added Dockerfile and build script. You can rebuild the docker image as you wish using the Dockerfile.
-- Upgraded docker image (tag release1.0 to release1.3).
-    - Replaced cuda-runtime by cuda-devel.
+- Added Dockerfile and build script (/docker). You can rebuild the docker image as you wish using the Dockerfile.
+- Upgraded docker image. Follow the instructions in the readme file to download the new docker image. However this is not a MUST, if the previous docker image already fulfiled your development requirement.
+    - Replaced cuda-runtime with cuda-devel.
     - Added models and scenes released in v1.1.
     - Fixed the Sapien controller issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/10)
 - Fixed the Sapien camera_info timestamp issue (https://github.com/OCRTOC/OCRTOC_software_package/issues/14)
