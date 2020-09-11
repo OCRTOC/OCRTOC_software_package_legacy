@@ -26,9 +26,9 @@ The docker image is not part of the OCRTOC software package and needs be downloa
 
 ```bash
 # Mirror address of China (ShangHai)
-sudo docker pull registry.cn-shanghai.aliyuncs.com/tcc-public/ocrtoc:release1.0
+sudo docker pull registry.cn-shanghai.aliyuncs.com/tcc-public/ocrtoc:release1.3
 # Mirror address of the United States (Silicon Valley)
-sudo docker pull registry.us-west-1.aliyuncs.com/tcc-public/ocrtoc:release1.0
+sudo docker pull registry.us-west-1.aliyuncs.com/tcc-public/ocrtoc:release1.3
 ```
 
 The content of the docker image is as follows:
@@ -45,9 +45,10 @@ The content of the docker image is as follows:
 
 ## File Structure of the OCRTOC software package
 
-- **description**: The description files for hardware simulation. (**No modifiction allowed**)
-- **gazebo_simulator**: Setups and scripts for the Gazebo simluator. (**No modifiction allowed**)
-- **sapien_simluator**: Setups and scripts for the Sapien simluator. (**No modifiction allowed**)
+- **description**: The description files for hardware simulation.
+- **docker**: The Dockerfile and build script. You can modify the Dockerfile and rebuild your docker image.
+- **gazebo_simulator**: Setups and scripts for the Gazebo simluator.
+- **sapien_simluator**: Setups and scripts for the Sapien simluator.
 - **ocrtoc_task**: Scripts for task execution and evaluation. (**No modifiction allowed**)
 - **ocrtoc_solution**: Setups and scripts for building the solution. Sample code is given in ocrtoc_solution/scripts/commit_solution.py (**Do not change the file name!**). You can modify this file to develop your own solution. In addition you can also add any new software modules to this folder. Make sure that your commit_solution.py serves as the main function of your solution and it incorporates all the needed software modules to do the task. After your solution is uploaded to the competition platform, we will run your solution by ocrtoc_solution/launch/commit_solution.launch (**Do not change the file name!**).
 
@@ -108,7 +109,8 @@ After you obtained the task information, you need to implement the core function
 
 **Evaluation**
 
-After you finished the task, you need to publish the actionlib result topic. The format of this result is a string. We do not parse the content of this string. Instead, it is only used to activate our callback function for evaluation. So you can write anything reasonable into this string, such as "done", "finished" and so on. If you do not publish the actionlib result at all, your solution will be terminated after a predefined timeout (e.g. 10 minutes), and then the evaluation will start automatically. We highly recommend you to publish the actionlib result topic, once your solution has finished the execution. This helps us compute the execution time of your solution. If two teams have the same performance, the team consuming less execution time will be ranked higher.
+After you finished the task, you need to publish the actionlib result topic. The format of this result is a string. We do not parse the content of this string. Instead, it is only used to activate our callback function for evaluation. So you can write anything reasonable into this string, such as "done", "finished" and so on. If you do not publish the actionlib result at all, your solution will be terminated after a predefined timeout (e.g. 10 minutes), and then the evaluation will start automatically. We highly recommend you to publish the actionlib result topic, once your solution has finished the execution. This helps us compute the execution time of your solution. For each object in the target configuration, a distance error will be calculated based on its actual pose and its target pose. There will be an upper bound for the distance error of a single object. For each task, distance errors of all the objects are summed up. The performance of the solution is ranked according to the summed distance error of all tasks. If two teams have the same performance, the team consuming less execution time will be ranked higher.
+
 
 
 ## Use the OCRTOC software package on your local machine
@@ -126,7 +128,7 @@ sudo docker run -i -d --gpus all --name ocrtoc_container \
         -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v $HOME/OCRTOC_software_package:/root/ocrtoc_ws/src \
-        registry.cn-shanghai.aliyuncs.com/tcc-public/ocrtoc:release1.0
+        registry.cn-shanghai.aliyuncs.com/tcc-public/ocrtoc:release1.3
 sudo xhost +local:`sudo docker inspect --format='{{ .Config.Hostname }}' ocrtoc_container`
 ```
 
