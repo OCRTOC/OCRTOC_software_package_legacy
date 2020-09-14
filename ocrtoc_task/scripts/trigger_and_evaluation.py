@@ -88,7 +88,7 @@ if __name__ == '__main__':
     # 1.Creates a actionlib goal from scene task configuration.
     goal = ocrtoc_task.msg.CleanGoal()
     goal.scene_id = task_name
-    goal.frame_id = 'table'
+    goal.frame_id = 'world'
     paraphrase_world(task_path, goal, alias_list)
     print(goal)
 
