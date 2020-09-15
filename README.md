@@ -185,15 +185,15 @@ rm -rf build devel
 # 3. Verify whether your solution can be launched in the following way
 # In terminal 1
 sudo docker exec -it ocrtoc_container bash
-source /root/catkin_ws/install/setup.bash
+source /root/ocrtoc_ws/install/setup.bash
 roslaunch ocrtoc_task bringup_simulator.launch simulator:=gazebo gui:=true scene:=1-1
 # In terminal 2
 sudo docker exec -it ocrtoc_container bash
-source /root/catkin_ws/install/setup.bash
+source /root/ocrtoc_ws/install/setup.bash
 roslaunch ocrtoc_solution commit_solution.launch
 # In terminal 3
 sudo docker exec -it ocrtoc_container bash
-source /root/catkin_ws/install/setup.bash
+source /root/ocrtoc_ws/install/setup.bash
 roslaunch ocrtoc_task trigger_and_evaluation.launch simulator:=gazebo scene:=1-1
 
 # 4. Export a docker image by the docker container.
