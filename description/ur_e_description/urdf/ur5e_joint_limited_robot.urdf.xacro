@@ -21,20 +21,25 @@
 
   <!-- Adding table to the world -->
   <link name="table">
-  <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-  <inertial>
-          <mass value="5" />
-          <origin xyz="0 0 0" />
-          <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1" />
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+    <inertial>
+      <mass value="50" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1" />
     </inertial>
     <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://ur_e_description/meshes/table/visual/table.dae"/>
+        <box size="2 2 0.76" />
       </geometry>
+      <material name="silver">
+        <color rgba="0.75 0.75 0.75 1" />
+      </material>
     </visual>
     <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://ur_e_description/meshes/table/collision/table.obj"/>
+        <box size="2 2 0.76" />
       </geometry>
     </collision>
   </link>
@@ -42,18 +47,69 @@
   <joint name="world_joint" type="fixed">
     <parent link="world"/>
     <child link="table"/>
-    <origin rpy="0.0 0.0 -1.57" xyz="0.0 0.0 -0.005"/>
+    <origin xyz="0.0 0.0 -0.38" rpy="0.0 0.0 -1.57" />
   </joint>
 
   <!-- fixing robot base link to the table -->
   <joint name="table_joint" type="fixed">
     <parent link="table" />
     <child link = "base_link" />
-    <origin xyz="0 -0.24 0.0" rpy="0.0 0.0 0" />
+    <origin xyz="0 -0.24 0.38" rpy="0.0 0.0 0" />
+  </joint>
+
+  <!-- realsense tool -->
+  <link name="realsense_tool">
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+    <inertial>
+      <mass value="0.3" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="${0.5*0.075}" length="0.016" />
+      </geometry>
+      <material name="silver">
+        <color rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="${0.5*0.075}" length="0.016" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="realsense_tool_joint" type="fixed">
+    <parent link="tool0" />
+    <child link = "realsense_tool" />
+    <origin xyz="0 0 0.005" rpy="0 0 0" />
+  </joint>
+
+  <!-- realsense camera -->
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  <!--sensor_d435 parent="realsense_tool"-->
+  <sensor_d435 parent="wrist_3_link" >
+    <origin xyz="0.019 0.068 -0.084" rpy="3.085 0.025 1.528"/>
+  </sensor_d435>
+
+  <!-- kinect camera -->
+  <xacro:include filename="$(find azure_kinect_ros_driver)/urdf/azure_kinect.urdf.xacro" />
+  <joint name="base_kinect_joint" type="fixed">
+    <parent link="base_link" />
+    <child link = "camera_base" />
+    <origin xyz="-0.053 1.051 0.701" rpy="-0.026 0.560 -1.599"/>
   </joint>
 
   <!-- gripper -->
-  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_2f_85_visualization.urdf.xacro" />
-  <xacro:robotiq_visualization sim="$(arg sim)"/>
+  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_ur_coupler.urdf.xacro" />
+  <xacro:robotiq_ur_coupler name="robotiq_ur_coupler" parent="realsense_tool" />
+  <!--xacro:robotiq_ur_coupler name="robotiq_ur_coupler" parent="tool0" /-->
+  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_2f_85.urdf.xacro" />
+  <xacro:robotiq_2f_85 name="robotiq_2f_85" parent="robotiq_ur_coupler" precise_collision="false" adaptive_transmission="true" sim="false" >
+    <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+  </xacro:robotiq_2f_85>
 
 </robot>

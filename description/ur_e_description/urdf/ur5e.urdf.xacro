@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find ur_e_description)/urdf/ur.transmission.xacro" />
-  <xacro:include filename="$(find ur_e_description)/urdf/ur.gazebo.xacro" />
+  <!--xacro:include filename="$(find ur_e_description)/urdf/ur.gazebo.xacro" /-->
 
   <xacro:macro name="cylinder_inertial" params="radius length mass *origin">
     <inertial>
@@ -357,80 +357,8 @@
       </collision>
     </link>
 
-    <!-- Realsense Link -->
-  <xacro:include filename="$(find ur_e_description)/urdf/_d435.urdf.xacro" />
-  <sensor_d435 parent="${prefix}wrist_3_link">
-    <origin xyz="0.011013 0.094580 -0.10724" rpy="-3.1296068 0.028976 1.6645942"/>
-  </sensor_d435>
-
-    <!-- Kinect link -->
-    <material name="black">
-        <color rgba="0. 0. 0. 1" />
-    </material>
-    <material name="dark_grey">
-        <color rgba="0.1 0.1 0.1 1" />
-    </material>
-    <material name="grey">
-        <color rgba="0.6 0.6 0.6 1" />
-    </material>
-    <material name="white">
-        <color rgba="0.9 0.9 0.9 1" />
-    </material>
-
-    <joint name="kinect_camera_joint" type="fixed">
-      <origin rpy="0.1285134 0.8828308 -1.3433447" xyz="-0.13285 0.797229 0.58769"/>
-      <parent link="${prefix}base_link"/>
-      <child link="kinect_camera_visor" />
-    </joint>
-
-    <link name="kinect_camera_body">
-    <visual>
-      <origin xyz="0. 0. 0." />
-      <geometry>
-        <box size="0.0994 0.0996 0.023" />
-      </geometry>
-      <material name="white" />
-    </visual>
-  </link>
-
-    <link name="kinect_camera_base">
-    <visual>
-      <origin xyz="-0.013 0. 0." />
-      <geometry>
-        <box size="0.026 0.103 0.039" />
-      </geometry>
-      <material name="grey" />
-    </visual>
-    </link>
-    <link name="kinect_camera_visor">
-    <visual>
-      <origin xyz="-0.0128 0. 0." />
-      <geometry>
-        <box size="0.026 0.101 0.037" />
-      </geometry>
-      <material name="black" />
-    </visual>
-  </link>
-   <joint name="kinect_camera_base_to_body" type="fixed">
-    <parent link="kinect_camera_base" />
-    <child link="kinect_camera_body" />
-    <origin xyz="-0.0757 0. 0.008" rpy="0. 0. 0." />
-  </joint>
-  <joint name="kinect_camera_base_to_visor" type="fixed">
-    <parent link="kinect_camera_visor" />
-    <child link="kinect_camera_base" />
-    <origin xyz="0. 0. 0." rpy="0. 0. 0." />
-  </joint>
-
-  <joint name="kinect_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-      <parent link="kinect_camera_visor" />
-      <child link="kinect_optical_frame" />
-    </joint>
-  <link name="kinect_optical_frame"/>
-
     <xacro:ur_arm_transmission prefix="${prefix}" />
-    <xacro:ur_arm_gazebo prefix="${prefix}" />
+    <!--xacro:ur_arm_gazebo prefix="${prefix}" /-->
 
     <!-- ROS base_link to UR 'Base' Coordinates transform -->
     <link name="${prefix}base"/>
