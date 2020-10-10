@@ -1,3 +1,16 @@
+## [V1.4] release date: 2020-10-10
+**Changes in v1.4**
+- Added ROS drivers (/drivers).
+    - Kinect DK driver.
+    - UR5E driver.
+    - Robotiq-2F85 driver.
+    - Realsense D435i driver.
+- Added models and scenes for the real robot stage (/ocrtoc_materials_real_stage).
+- Added moveit config (/ur5_e_robotiq_2f_85_moveit_config).
+- Added launch files and shell scripts (/ocrtoc_task/launch).
+- Updated Dockerfile. Added install dependencies.
+- Extended README.md with "Information about the real robot stage".
+
 ## [V1.3] release date: 2020-09-11
 **Changes in v1.3**
 - Added Dockerfile and build script (/docker). You can rebuild the docker image as you wish using the Dockerfile.
