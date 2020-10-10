@@ -1,0 +1,11 @@
+<launch>
+  <!-- run commit_solution actionlib server -->
+  <node name="commit_solution" pkg="ocrtoc_solution" type="commit_solution.py" output="screen" >
+    <param name="materials_dir" value="$(find ocrtoc_materials_real_stage)"/>
+  </node>
+
+  <!-- run you algorithm-->
+  <!-- run you algorithm-->
+  <!-- run you algorithm-->
+
+</launch>

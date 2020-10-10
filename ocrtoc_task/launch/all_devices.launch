@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <!--arg name="robot_ip" doc="IP address by which the robot can be reached."/-->
+  <arg name="robot_ip" doc="IP address by which the robot can be reached."/>
+
+  <!-- Realsense D435i -->
+  <include file="$(find realsense2_camera)/launch/rs_d435_camera_with_model.launch" />
+
+  <!-- Kinect DK -->
+  <node pkg="ocrtoc_task" type="timed_roslaunch.sh"
+    args="10 azure_kinect_ros_driver driver.launch"
+    name="timed_roslaunch" output="screen" >
+  </node>
+
+  <!-- UR5e -->
+  <include file="$(find ur_robot_driver)/launch/ur5e_bringup.launch" >
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+    <arg name="gripper" value="robotiq_2f_85"/>
+    <arg name="limited" value="true"/>
+  </include>
+
+  <!-- Robotiq 2F85 -->
+  <include file="$(find robotiq_2f_gripper_action_server)/launch/robotiq_2f_gripper_action_server.launch" />
+
+</launch>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scene" default="1-1" doc="Scene id."/>
+
+  <node pkg="ocrtoc_task" type="trigger.py" name="trigger" output="screen">
+    <param name="materials_dir" value="$(find ocrtoc_materials_real_stage)"/>
+    <param name="scene" value="$(arg scene)"/>
+  </node>
+</launch>

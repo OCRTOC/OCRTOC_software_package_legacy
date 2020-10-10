@@ -14,8 +14,8 @@ install(DIRECTORY
   config
   glsl_shader
   launch
-  rviz
   urdf
+  rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 install(PROGRAMS
