@@ -48,6 +48,7 @@ class CommitSolution(object):
             rospy.loginfo("Object model dir: " + object_model_dir)
         rospy.sleep(1.0)
 
+        '''
         # Example: control ur5e by topic
         arm_cmd = JointTrajectory()
         arm_cmd.joint_names = ['shoulder_pan_joint', 'shoulder_lift_joint', \
@@ -68,6 +69,7 @@ class CommitSolution(object):
         self.gripper_cmd_pub.publish(gripper_cmd)
         rospy.loginfo("Pub gripper_cmd")
         rospy.sleep(1.0)
+        '''
 
         # Example: set status "Aborted" and quit.
         if self.action_server.is_preempt_requested():
