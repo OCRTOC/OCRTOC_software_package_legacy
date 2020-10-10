@@ -27,6 +27,8 @@ install(DIRECTORY
 )
 install(PROGRAMS
   scripts/task_evaluation.pyc
+  scripts/trigger.py
   scripts/trigger_and_evaluation.py
+  launch/timed_roslaunch.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

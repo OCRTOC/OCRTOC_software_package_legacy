@@ -36,13 +36,20 @@ RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb
 # Install ROS dependencies.
 RUN pip3 install catkin_pkg numpy transforms3d rospkg \
     && apt-get install -y ros-melodic-ddynamic-reconfigure \
+                          ros-melodic-effort-controllers \
                           ros-melodic-gripper-action-controller \
+                          ros-melodic-joint-state-controller \
                           ros-melodic-joint-trajectory-controller \
                           ros-melodic-industrial-robot-status-interface \
                           ros-melodic-moveit \
+                          ros-melodic-position-controllers \
+                          ros-melodic-realsense2-camera \
                           ros-melodic-ros-control \
                           ros-melodic-ros-controllers \
-                          ros-melodic-ur-msgs
+                          ros-melodic-socketcan-interface \
+                          ros-melodic-soem \
+                          ros-melodic-ur-msgs \
+                          ros-melodic-visp-hand2eye-calibration
 
 # Copy files.
 COPY ocrtoc_materials /root/ocrtoc_materials
@@ -60,6 +67,19 @@ RUN wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | apt-key 
     && cd /workspace/sapien \
     && source /opt/ros/melodic/setup.bash \
     && mkdir build && cd build && cmake .. && make pysapien_ros1
+
+# Install k4a.
+RUN apt-get install -y software-properties-common \
+    && curl -sSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod \
+    && apt-get update \
+    && echo 'libk4a1.4 libk4a1.4/accepted-eula-hash string 0f5d5c5de396e4fee4c0753a21fee0c1ed726cf0316204edda484f08cb266d76' | debconf-set-selections \
+    && echo 'libk4a1.4 libk4a1.4/accept-eula boolean true' | debconf-set-selections \
+    && apt install -y k4a-tools libk4a1.4-dev
+
+# 2F85.
+RUN apt-get update \
+    && apt-get install python-pymodbus
 
 # Others.
 RUN cd /root \

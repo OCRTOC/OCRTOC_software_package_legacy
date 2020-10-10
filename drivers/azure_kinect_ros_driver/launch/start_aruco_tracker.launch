@@ -1,0 +1,22 @@
+<launch>
+
+    <arg name="marker_size" doc="Size of the ArUco marker used, in meters" default="0.05"/>
+    <arg name="marker_id" doc="The ID of the ArUco marker used" default="582"/>
+
+    <!-- start the Azure Kinect -->
+    <include file="$(find azure_kinect_ros_driver)/launch/rectify_test.launch" >
+    </include>
+
+    <!-- start ArUco -->
+    <node name="aruco_tracker" pkg="aruco_ros" type="single">
+        <remap from="/camera_info" to="/k4a/rgb/camera_info" />
+        <remap from="/image" to="/k4a/rgb/image_rect_color" />
+        <param name="image_is_rectified" value="true"/>
+        <param name="marker_size"        value="$(arg marker_size)"/>
+        <param name="marker_id"          value="$(arg marker_id)"/>
+        <param name="reference_frame"    value="camera_base"/>
+        <param name="camera_frame"       value="rgb_camera_link"/>
+        <param name="marker_frame"       value="camera_marker" />
+    </node>
+
+</launch>
