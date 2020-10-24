@@ -1,0 +1,14 @@
+eye_on_hand: true
+robot_effector_frame: wrist_3_link
+tracking_base_frame: realsense_link
+transformation:
+  pitch: -1.550014268215132
+  qw: 0.47600055908571787
+  qx: -0.5196224789507474
+  qy: -0.48943937798105075
+  qz: -0.5136779559224692
+  roll: 2.7387212762479
+  x: 0.025286393025798236
+  y: 0.08479299692230251
+  yaw: 1.90579051287057
+  z: -0.005384830573128277

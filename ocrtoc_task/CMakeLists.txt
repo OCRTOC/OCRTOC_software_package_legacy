@@ -22,6 +22,7 @@ catkin_package(
 
 install(DIRECTORY
   action
+  config
   launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

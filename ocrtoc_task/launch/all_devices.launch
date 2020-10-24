@@ -8,7 +8,7 @@
 
   <!-- Kinect DK -->
   <node pkg="ocrtoc_task" type="timed_roslaunch.sh"
-    args="10 azure_kinect_ros_driver driver.launch"
+    args="10 azure_kinect_ros_driver rectified_without_urdf.launch"
     name="timed_roslaunch" output="screen" >
   </node>
 
@@ -17,6 +17,7 @@
     <arg name="robot_ip" value="$(arg robot_ip)"/>
     <arg name="gripper" value="robotiq_2f_85"/>
     <arg name="limited" value="true"/>
+    <arg name="kinematics_config" value="$(find ocrtoc_task)/config/my_robot_calibration.yaml"/>
   </include>
 
   <!-- Robotiq 2F85 -->

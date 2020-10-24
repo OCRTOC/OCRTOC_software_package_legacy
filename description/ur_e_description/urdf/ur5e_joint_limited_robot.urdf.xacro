@@ -4,6 +4,15 @@
   <!-- common stuff -->
   <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
 
+  <!-- calibration files -->
+  <xacro:arg name="kinematics_config" default="$(find ur_e_description)/cfg/ur5e_default.yaml"/>
+  <xacro:arg name="kinect_config" default="$(find ocrtoc_task)/config/ur5_azure_kinect_handeyecalibration_eye_on_base.yaml"/>
+  <xacro:property name="kinect_values" value="${load_yaml('$(arg kinect_config)')}"/>
+  <xacro:arg name="realsense_config" default="$(find ocrtoc_task)/config/ur5_realsense_handeyecalibration_eye_on_hand.yaml"/>
+  <xacro:property name="realsense_values" value="${load_yaml('$(arg realsense_config)')}"/>
+
+  <xacro:property name="__kinematics" value="${kinematics_file['kinematics']}"/>
+
   <!-- ur5e -->
   <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" />
 
@@ -15,6 +24,7 @@
     wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
     wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
     wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+    kinematics_file="${load_yaml('$(arg kinematics_config)')}"
   />
 
   <link name="world" />
@@ -90,17 +100,18 @@
 
   <!-- realsense camera -->
   <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
-  <!--sensor_d435 parent="realsense_tool"-->
-  <sensor_d435 parent="wrist_3_link" >
-    <origin xyz="0.019 0.068 -0.084" rpy="3.085 0.025 1.528"/>
+  <sensor_d435 parent="${realsense_values['robot_effector_frame']}" use_nominal_extrinsics="false" >
+    <origin xyz="${realsense_values['transformation']['x']} ${realsense_values['transformation']['y']} ${realsense_values['transformation']['z']}"
+            rpy="${realsense_values['transformation']['roll']} ${realsense_values['transformation']['pitch']} ${realsense_values['transformation']['yaw']}"/>
   </sensor_d435>
 
   <!-- kinect camera -->
   <xacro:include filename="$(find azure_kinect_ros_driver)/urdf/azure_kinect.urdf.xacro" />
   <joint name="base_kinect_joint" type="fixed">
-    <parent link="base_link" />
-    <child link = "camera_base" />
-    <origin xyz="-0.053 1.051 0.701" rpy="-0.026 0.560 -1.599"/>
+    <parent link="${kinect_values['robot_base_frame']}" />
+    <child link = "${kinect_values['tracking_base_frame']}" />
+    <origin xyz="${kinect_values['transformation']['x']} ${kinect_values['transformation']['y']} ${kinect_values['transformation']['z']}"
+            rpy="${kinect_values['transformation']['roll']} ${kinect_values['transformation']['pitch']} ${kinect_values['transformation']['yaw']}"/>
   </joint>
 
   <!-- gripper -->

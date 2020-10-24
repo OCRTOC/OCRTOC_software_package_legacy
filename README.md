@@ -222,14 +222,20 @@ sudo docker commit ocrtoc_container your_submission_docker_image_name
 
 
 **Differences between the real robot stage and the simulation stage**
-- The frame_id of visual data.
-- Some contents of the tf tree.
+- The topic_name/frame_id/encoding/camera_info of cameras may changed, check the [camera_image_info.md](https://github.com/OCRTOC/OCRTOC_software_package/blob/master/docs/camera_image_info.md). The follwing topics are recommended. You can also make changes on the camera launch/prarameters.
+  - /kinect/color/image_rect_color
+  - /kinect/depth_to_color/image_raw
+  - /realsense/color/image_raw
+  - /realsense/aligned_depth_to_color/image_raw
+- Some contents of the tf tree, check the [tf.png](https://github.com/OCRTOC/OCRTOC_software_package/blob/master/docs/tf.png).
+- The "arm_controller" won't be launched as the deafult controller. The default controllers are the pos_traj_controller and the scaled_pos_traj_controller. If you are using moveit, you will not encounter the controller issues.
 - The control values of /gripper_controller/gripper_cmd/goal. In the real robot stage, "position = 0.0" means openning the gripper to its maximum, and "position = 0.085" means closing the gripper. In addtion, the "max_effort" must be in range 30.0N - 100.0N.
 
 **Sample data collected from the real robot**
-
-You can download [image-point.bag](https://ocrtoc-public.oss-cn-hangzhou.aliyuncs.com/rosbag/0924/image-point.bag)
-to check visual data and its frame_id. With [other-topic.bag](https://ocrtoc-public.oss-cn-hangzhou.aliyuncs.com/rosbag/0924/other-topic.bag) you can check some other topics.
+- [tf.bag](https://ocrtoc-public.oss-cn-hangzhou.aliyuncs.com/rosbag/1023/tf.bag): A ROS bag including the whole tf tree.
+- [realsense.bag](https://ocrtoc-public.oss-cn-hangzhou.aliyuncs.com/rosbag/1023/realsense.bag) : A ROS bag including all topics of realsense.
+- [kinect.bag](https://ocrtoc-public.oss-cn-hangzhou.aliyuncs.com/rosbag/1023/kinect.bag) : A ROS bag including all topics of kinect.
+- topic_list of arm/cameras/gripper (/docs)
 
 **Important rules for real robot trials**
 
