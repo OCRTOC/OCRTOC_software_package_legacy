@@ -1,0 +1,9 @@
+/Robotiq2FGripperRobotInput
+/Robotiq2FGripperRobotOutput
+/gripper_controller/gripper_cmd/cancel
+/gripper_controller/gripper_cmd/feedback
+/gripper_controller/gripper_cmd/goal
+/gripper_controller/gripper_cmd/result
+/gripper_controller/gripper_cmd/status
+/rosout
+/rosout_agg
