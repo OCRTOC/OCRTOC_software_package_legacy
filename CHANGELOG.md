@@ -1,14 +1,14 @@
 ## [V1.5] release date: 2020-10-23
 **Changes in v1.5**
-- Removed ocrtoc_materials_patch folder.
-- Added a moveit launch file (/ur5_e_robotiq_2f_85_moveit_config/launch/all.launch).
+- Removed the ocrtoc_materials_patch folder.
+- Added a launch file for MoveIt (/ur5_e_robotiq_2f_85_moveit_config/launch/all.launch).
 - Added kinect/realsense/ur5e calibration files (/ocrtoc_task/config)
 - Updated urdf files for the real robot stage (description/ur_e_description/urdf). The "ur5e_joint_limited_robot.urdf.xacro" file will load the calibration files.
 - Updated all models for the real robot stage (/ocrtoc_materials_real_stage/models).
-- Updated the kinect/realsense launch files, improved the image qualities.
-- Added a FAQ document including the issues we encountered in the trial period (/docs).
-- Added a document including the detail information of camera topics (/docs).
-- Added documents including the topic lists (/docs).
+- Updated the kinect/realsense launch files, improved the image quality.
+- Added a FAQ document about the issues we encountered in the trial period (/docs).
+- Added a document about the detail information of camera topics (/docs).
+- Added documents about the topic lists (/docs).
 - Extended README.md with "Differences between the real robot stage and the simulation stage" and "Sample data collected from the real robot".
 
 ## [V1.4] release date: 2020-10-10
