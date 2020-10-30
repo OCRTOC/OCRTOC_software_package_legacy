@@ -64,7 +64,7 @@
   <joint name="table_joint" type="fixed">
     <parent link="table" />
     <child link = "base_link" />
-    <origin xyz="0 -0.24 0.38" rpy="0.0 0.0 0" />
+    <origin xyz="0 -0.24 0.3875" rpy="0.0 0.0 0" />
   </joint>
 
   <!-- realsense tool -->
