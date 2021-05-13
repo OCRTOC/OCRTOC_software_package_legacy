@@ -289,6 +289,13 @@ roslaunch ocrtoc_task trigger_real_stage.launch scene:=1-1
 
 6. You can save the data (up to 5GB) that you want to keep under "/root/upload". After the trial we will send you the data and the log file of your solution.
 
+## Citation
+If you find our work helpful, please cite the following paper （https://arxiv.org/pdf/2104.11446.pdf）
+
+“OCRTOC: A Cloud-Based Competition and Benchmark for Robotic Grasping and Manipulation”
+Ziyuan Liu, Wei Liu, Yuzhe Qin, Fanbo Xiang, Songyan Xin, Maximo A Roa, Berk Calli, Hao Su, Yu Sun, Ping Tan
+
+
 
 ## Technical support
 If you encounter technical issues regarding this software package, please contact us at info@ocrtoc.org
