@@ -292,8 +292,7 @@ roslaunch ocrtoc_task trigger_real_stage.launch scene:=1-1
 ## Citation
 If you find our work helpful, please cite the following paper （https://arxiv.org/pdf/2104.11446.pdf）
 
-“OCRTOC: A Cloud-Based Competition and Benchmark for Robotic Grasping and Manipulation”
-Ziyuan Liu, Wei Liu, Yuzhe Qin, Fanbo Xiang, Songyan Xin, Maximo A Roa, Berk Calli, Hao Su, Yu Sun, Ping Tan
+“OCRTOC: A Cloud-Based Competition and Benchmark for Robotic Grasping and Manipulation”, Ziyuan Liu, Wei Liu, Yuzhe Qin, Fanbo Xiang, Songyan Xin, Maximo A Roa, Berk Calli, Hao Su, Yu Sun, Ping Tan.
 
 
 
